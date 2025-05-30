@@ -1,0 +1,13 @@
+1 - create project with venv
+2 - install django (django-admin startproject blogs) --> after that run project with python manage.py runserver
+3 - after installation create app (python manage.py startapp blog)
+4 - register my view
+5 - call view in urls
+
+
+CRUD
+Ecommerce project
+products  --> app
+orders
+users
+category
