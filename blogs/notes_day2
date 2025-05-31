@@ -1,0 +1,39 @@
+1 -  to usee external db Like PostgreSQl
+    * 1 - pip install psycopg2-binary
+    * 2 - in settings.py
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': 'blog',
+                'USER': 'postgres',
+                'PASSWORD': '123456',
+                'HOST': 'localhost',
+                'PORT': '5432',
+            }
+        }
+
+2 - CRUD Operations
+    * shell
+    * Admin panel
+    * models file
+
+    - Admin panel to join admin panel you need to create superuser
+        * python manage.py createsuperuser
+    - models to interact with db you must use models and orm
+    fields:
+        * https://docs.djangoproject.com/en/5.2/ref/models/fields/
+
+    apply models to db:
+        * python manage.py makemigrations
+        * python manage.py migrate
+
+
+   upload images using media url in settings
+   to delete images from media folder
+   * pip install django-cleanup
+       INSTALLED_APPS = (
+         ...
+        'django_cleanup.apps.CleanupConfig', # should go after your apps
+        )
+
+add Category to Post ---> one to many relationship

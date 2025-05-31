@@ -1,0 +1,26 @@
+{% extends "posts/base.html" %}
+{% block title %}
+{{post.title}}
+{% endblock title %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card" style="width: 18rem;">
+        <img src="{{post.get_image_url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.content}}</p>
+            <p class="card-text">{{post.publisher_email}}</p>
+            <p class="card-text">{{post.num_of_likes}}</p>
+            <p class="card-text">{{post.category}}</p>
+        </div>
+    </div>
+</div>
+<h1>Related Posts</h1>
+<ul>
+    {% for p in post.category.posts_category.all %}
+    {% if p.id != post.id %}
+   <a href="{% url 'postshow' p.id %}"><li>{{p.title}}</li></a>
+    {% endif %}
+{% endfor %}
+</ul>
+{% endblock content %}

@@ -3,8 +3,7 @@
 3 - after installation create app (python manage.py startapp blog)
 4 - register my view
 5 - call view in urls
-
-
+6 - create base file end extend it in all html files include block created
 CRUD
 Ecommerce project
 products  --> app
