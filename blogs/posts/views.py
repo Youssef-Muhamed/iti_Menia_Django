@@ -1,5 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse,HttpResponseRedirect,HttpResponseNotFound
+from django.views import View
+
 
 from .models import Post
 from .forms import PostForm
@@ -26,6 +28,9 @@ def say_hello_without_name(request):
 #     'title':'third post',
 #     'content':'This is the third post'
 # }]
+from django.contrib.auth.decorators import login_required
+
+# @login_required
 def index(request):
     posts = Post.objects.all()
     return render(request, 'posts/index.html',context={'posts':posts})
@@ -83,6 +88,8 @@ def update_post(request,id):
             forms.save()
             return redirect('Postindex')
         return render(request, 'posts/update.html')
+
+
 
 
 
